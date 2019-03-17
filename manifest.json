@@ -1,0 +1,30 @@
+{
+    "manifest_version": 2,
+    "name": "NextSong",
+    "description": "YouTube.com extension for next song (like queue)",
+    "version": "1",
+    "author": "Uros Stojiljkovic",
+    "web_accessible_resources": [
+        "./helper_script.js"
+    ],
+    "urls": [
+        "https://www.youtube.com/*"
+    ],
+    "background": {
+        "persistent": false,
+        "scripts": ["background_script.js"]
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://www.youtube.com/*"],
+            "css": ["myStyles.css"],
+            "js": ["contentScript.js"]
+        }
+    ],
+    "permissions": ["activeTab","storage"],
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_title": "YouTube => NextSong",
+        "default_popup": "popout.html"
+    }
+}
