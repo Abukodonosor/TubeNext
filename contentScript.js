@@ -32,7 +32,6 @@ window.onload = async(env) => {
 port.onMessage.addListener(function(msg) {
        
     if(msg.response == false){
-        console.log(msg.msg);
         return;
     }
     window.location.href = msg.url;
@@ -59,7 +58,7 @@ class Factory {
         if(render)
             for(let i = marked; i < items.length; i++){
                 if( placeForWidget == TYPEhomePage){
-                    items[i].parentElement.nextElementSibling.appendChild(new className(items[i].href, placeForWidget))
+                    items[i].parentElement.appendChild(new className(items[i].href, placeForWidget))
                 }
                 else if ( placeForWidget == TYPEvideoPage){
                     items[i].parentElement.appendChild(new className(items[i].href, placeForWidget))
@@ -76,9 +75,9 @@ class YouTubeUI {
         this.contentWrapper = document.createElement("div")
         this.contentWrapper.setAttribute('class', widgetWrapperClass(placeForWidget)+" nextTube");
         
-        this.contentWrapper.append(new ButtonWidget('mark Next', doAction.bind(this, url), ""));
-        this.contentWrapper.append(new ButtonWidget('unMark Next ', doAction.bind(this, url), ""));
-        
+        this.contentWrapper.insertBefore(new ButtonWidget('>>', doAction.bind(this, url), "visualHome"), this.contentWrapper.firstChild);
+        // this.contentWrapper.append(new ButtonWidget('Next', doAction.bind(this, url), ""));
+            
         return this.contentWrapper;
     }
 
@@ -102,11 +101,8 @@ class YouTubeUI {
 
         if(objectTracker.currentTime == objectTracker.endTime)
             nextSong();
-        
-        console.log(objectTracker);
+       
     }
-
-
 }
 
 /* Button for UI on youtube suggestion clips */
@@ -119,6 +115,7 @@ class ButtonWidget {
             );
         this._buttonHtml.onclick = onClickEvent;
         this._buttonHtml.setAttribute('class', styleClass);
+        this._buttonHtml.setAttribute('title', "Schedule song, which you like to hear next!");
         return this._buttonHtml;
     }
 

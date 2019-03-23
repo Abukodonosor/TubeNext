@@ -1,0 +1,12 @@
+.visualHome{
+    z-index: 500;
+    width: 40px;
+    border: 2px solid #fff;
+    border-radius: 90px;
+    background: rgb(224, 222, 222);
+    /* color:white; */
+    position:relative;
+    cursor:crosshair;
+    top: 0px;
+    left: 0px;
+}
