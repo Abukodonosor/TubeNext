@@ -2,7 +2,7 @@
     z-index: 500;
     width: 40px;
     border: 2px solid #fff;
-    border-radius: 90px;
+    border-radius: 0px 90px 90px 0px;
     background: rgb(224, 222, 222);
     /* color:white; */
     position:relative;
