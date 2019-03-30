@@ -6,7 +6,11 @@
     background: rgb(224, 222, 222);
     /* color:white; */
     position:relative;
-    cursor:crosshair;
+    cursor: pointer;
     top: 0px;
     left: 0px;
+}
+
+.visualHome:hover{
+    border: 2px solid rgb(25, 18, 128);
 }
