@@ -1,16 +1,19 @@
 .visualHome{
-    z-index: 500;
-    width: 40px;
+    z-index: 1500;
+    width: 35px;
+    height: 35px;
     border: 2px solid #fff;
-    border-radius: 0px 90px 90px 0px;
-    background: rgb(224, 222, 222);
+    border-radius: 100px;
+    background: rgb(25, 18, 128);
     /* color:white; */
     position:relative;
     cursor: pointer;
-    top: 0px;
-    left: 0px;
+    top: -10px;
+    left: -10px;
+    color:rgb(21, 14, 131);
+    color: #fff;
 }
 
 .visualHome:hover{
-    border: 2px solid rgb(25, 18, 128);
+    border: 2px solid rgb(12, 233, 4);
 }
