@@ -7,10 +7,23 @@
     <title>Document</title>
     <style>
         #mainContent{
-            width:200px;
+            width:250px;
             height: 200px;
             background: #fff;
         }
+        .song-item{
+            display: inline-block;
+            width: 80%;
+            padding-bottom: 5px;
+            border-bottom: 1px solid black;
+        }
+
+        .song-list{
+            display: block;
+            overflow-y: scroll;
+            height: 200px;
+        }
+        
     </style>
 </head>
 <body>
@@ -21,7 +34,24 @@
             turnOff: <input type="radio" name="option" />
             turnOn: <input type="radio" name="option" />
         </div>
-        <div></div>
+        <div class="song-list">
+            <div class="song-item">
+                <h4>Bee Gees - Closer than close </h4>
+                <button>remove</button>
+            </div>
+            <div class="song-item">
+                <h4>Bee Gees - Closer than close </h4>
+                <button>remove</button>
+            </div>
+            <div class="song-item">
+                <h4>Bee Gees - Closer than close </h4>
+                <button>remove</button>
+            </div>
+            <div class="song-item">
+                <h4>Bee Gees - Closer than close </h4>
+                <button>remove</button>
+            </div>
+        </div>
     </div>
     
     <!-- "chrome_url_overrides" : {
