@@ -37,9 +37,13 @@ port.onMessage.addListener(function(msg) {
     window.location.href = msg.url;
 });
 
-function doAction(url){
+function doAction(url, title){
     alert("The song is added to que");
-    port.postMessage({methodType: "addSong", url: url});
+    port.postMessage({
+        methodType: "addSong",
+        url: url,
+        title: title
+    });
 }
 
 function nextSong(){
@@ -57,12 +61,15 @@ class Factory {
         const {marked, render} = calculateWidgetCoverage()
         if(render)
             for(let i = marked; i < items.length; i++){
-                if( placeForWidget == TYPEhomePage){
-                    items[i].parentElement.appendChild(new className(items[i].href, placeForWidget))
-                }
-                else if ( placeForWidget == TYPEvideoPage){
-                    items[i].parentElement.appendChild(new className(items[i].href, placeForWidget))
-                }
+                var itemObject = {};
+                itemObject.url = items[i].href;
+                itemObject.title = items[i].parentElement
+                    .nextElementSibling
+                    .firstElementChild
+                    .firstElementChild
+                    .innerText;
+
+                items[i].parentElement.appendChild(new className(itemObject, placeForWidget))
             }
         return items;
     }
@@ -71,11 +78,15 @@ class Factory {
 
 class YouTubeUI {
     
-    constructor(url, placeForWidget) {
+    constructor(itemObject, placeForWidget) {
+        const {
+            url, title
+        } = itemObject
+
         this.contentWrapper = document.createElement("div")
         this.contentWrapper.setAttribute('class', widgetWrapperClass(placeForWidget)+" nextTube");
         
-        this.contentWrapper.insertBefore(new ButtonWidget('>>', doAction.bind(this, url), "visualHome"), this.contentWrapper.firstChild);
+        this.contentWrapper.insertBefore(new ButtonWidget('>>', doAction.bind(this, url, title), "visualHome"), this.contentWrapper.firstChild);
         // this.contentWrapper.append(new ButtonWidget('Next', doAction.bind(this, url), ""));
             
         return this.contentWrapper;
@@ -148,14 +159,3 @@ function calculateWidgetCoverage(){
     let render = items.length - marked;
     return {marked, render}
 }
-
-
-// class PlayNextComponent {
-//     constructor (selector, pageTpe){
-//         this.allSuggestedSelector = selector
-//         this.suggestionType =  pageTpe;
-//     }
-
-// }
-
-/* YouTube UI catcher and parser */

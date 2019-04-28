@@ -8,8 +8,8 @@
     /* color:white; */
     position:relative;
     cursor: pointer;
-    top: -10px;
-    left: -10px;
+    /* top: 10px; */
+    /* left: 10px; */
     color:rgb(21, 14, 131);
     color: #fff;
 }
