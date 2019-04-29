@@ -11,7 +11,7 @@
         "https://www.youtube.com/*"
     ],
     "background": {
-        "persistent": false,
+        "persistent": true,
         "scripts": ["background_script.js"]
     },
     "content_scripts": [
