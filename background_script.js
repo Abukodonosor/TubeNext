@@ -21,11 +21,15 @@ chrome.runtime.onConnect.addListener(async function(port) {
         case 'addSong':
           result = await MechaFunc.updateStorage(msgData);
           console.log(result)
-        break;
-      case 'nextSong':
+          break;
+        case 'nextSong':
           data = await MechaFunc.getNextSong();
           port.postMessage(data);
-        break;
+          break;
+        case 'songList':
+          data = await MechaFunc.getStorage();
+          port.postMessage(data);
+          break;
       default:
         console.log("Unsuspected state of methodType!!");
     }

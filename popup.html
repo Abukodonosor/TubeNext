@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=], initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+
         #mainContent{
             width:250px;
             height: 200px;
@@ -13,9 +13,13 @@
         }
         .song-item{
             display: inline-block;
-            width: 80%;
+            width: 100%;
             padding-bottom: 5px;
             border-bottom: 1px solid black;
+        }
+
+        .song-item:hover{
+            background: #f4f4f4;
         }
 
         .song-list{
@@ -25,6 +29,7 @@
         }
         
     </style>
+
 </head>
 <body>
     <div id="mainContent">
@@ -33,26 +38,12 @@
             turnOff: <input type="radio" name="option" />
             turnOn: <input type="radio" name="option" />
         </div>
+        <h4>Scheduled songs:</h4>
         <div class="song-list">
-            <div class="song-item">
-                <h4>Bee Gees - Closer than close </h4>
-                <button>remove</button>
-            </div>
-            <div class="song-item">
-                <h4>Bee Gees - Closer than close </h4>
-                <button>remove</button>
-            </div>
-            <div class="song-item">
-                <h4>Bee Gees - Closer than close </h4>
-                <button>remove</button>
-            </div>
-            <div class="song-item">
-                <h4>Bee Gees - Closer than close </h4>
-                <button>remove</button>
-            </div>
         </div>
     </div>
-        
-    <script src=”./popup.js”></script>
+
+    <script src="popup.js" type="text/javascript"></script>
+   
 </body>
 </html>
